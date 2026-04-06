@@ -16,19 +16,41 @@ AI Learning Companion是一个帮助任何人创建定制化AI办学系统的工
 
 ## 文件结构
 
+### Skill 内部结构
+
+```
+learning-companion/
+├── README.md                           # 本文件，使用说明
+├── scripts/                            # 工具脚本
+│   ├── setup_workspace.py              # 生成工作区文件
+│   ├── ocr_caller.py                   # paddleOCR 调用脚本
+│   └── mineru_caller.py                # minerU 调用脚本
+└── skills/
+    ├── background-character/
+    │   └── SKILL.md                    # 人物设定 skill
+    ├── interaction-rules/
+    │   └── SKILL.md                    # 交互规则 skill
+    └── study-workspace/
+        └── SKILL.md                    # 学习工作区 skill
+```
+
+### 生成的伴学项目结构
+
 ```
 你的项目文件夹/
-├── BackgroundAndCharacterSetting.md # 人物设定
-├── InteractionRules.md             # 交互规则
-├── scripts/                        # 工具脚本（OCR、文档提取等）
-├── book_name/                        # 一本/多本文献的工作区文件夹
-    ├── book.(pdf/md/...)               # 要学习的文献 
+├── BackgroundAndCharacterSetting.md    # 人物设定（通用，不绑定具体文献）
+├── InteractionRules.md                 # 交互规则（通用，不绑定具体文献）
+├── scripts/                            # 工具脚本（从 skill 复制过来）
+│   ├── setup_workspace.py              # 工作区文件生成脚本
+│   ├── ocr_caller.py                   # paddleOCR 调用脚本
+│   └── mineru_caller.py                # minerU 调用脚本
+└── book_name/                          # 每本文献一个工作区文件夹
+    ├── book.(pdf/md/...)               # 要学习的文献
     ├── prompt.txt                      # 每次学习的入口点
     ├── skill_tree.md                   # 已学知识点知识树
     ├── current_focus.md                # 当前进度与下一轮起点
-    ├── daily_diary.md                  # 每节课的角色视角回顾
+    └── daily_diary.md                  # 每节课的角色视角回顾
 ```
-
 ## 复用同一套人设+规则，换一本书
 
 1. 复制整个配置文件夹，重命名为新的学习项目
