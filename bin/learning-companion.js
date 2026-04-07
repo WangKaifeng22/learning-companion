@@ -41,23 +41,23 @@ function main() {
 
   log(CYAN, '\n🎓 AI Learning Companion — installing skills\n');
 
-  // Install Copilot skills → .github/copilot/skills/<name>/SKILL.md
-  const skillsSrc = path.join(pkgRoot, 'skills');
-  const skillsDest = path.join(cwd, '.github', 'copilot', 'skills');
+  // Install everything under .github/copilot/skills/learning-companion/
+  const installRoot = path.join(cwd, '.github', 'copilot', 'skills', 'learning-companion');
 
+  // Copy skill files → .github/copilot/skills/learning-companion/skills/<name>/SKILL.md
+  const skillsSrc = path.join(pkgRoot, 'skills');
   for (const skill of SKILLS) {
     const src = path.join(skillsSrc, skill, 'SKILL.md');
-    const dest = path.join(skillsDest, skill, 'SKILL.md');
+    const dest = path.join(installRoot, 'skills', skill, 'SKILL.md');
     copyFile(src, dest);
-    log(GREEN, `  ✔ skill installed: .github/copilot/skills/${skill}/SKILL.md`);
+    log(GREEN, `  ✔ skill installed: .github/copilot/skills/learning-companion/skills/${skill}/SKILL.md`);
   }
 
-  // Install helper scripts → scripts/
+  // Copy helper scripts → .github/copilot/skills/learning-companion/scripts/
   const scriptsSrc = path.join(pkgRoot, 'scripts');
-  const scriptsDest = path.join(cwd, 'scripts');
-
+  const scriptsDest = path.join(installRoot, 'scripts');
   copyDir(scriptsSrc, scriptsDest);
-  log(GREEN, '  ✔ scripts installed: scripts/');
+  log(GREEN, '  ✔ scripts installed: .github/copilot/skills/learning-companion/scripts/');
 
   log(YELLOW, '\n📖 下一步：');
   console.log('  1. 将 AI 模型指向你的项目文件夹');
