@@ -1,0 +1,30 @@
+{
+  "name": "learning-companion",
+  "version": "1.0.0",
+  "description": "AI Learning Companion — install Copilot skills and helper scripts into your project with a single npx command.",
+  "keywords": [
+    "github-copilot",
+    "copilot-skills",
+    "ai",
+    "learning",
+    "education"
+  ],
+  "author": "WangKaifeng22",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WangKaifeng22/learning-companion.git"
+  },
+  "homepage": "https://github.com/WangKaifeng22/learning-companion#readme",
+  "bin": {
+    "learning-companion": "./bin/learning-companion.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "scripts"
+  ],
+  "engines": {
+    "node": ">=14"
+  }
+}
