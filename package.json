@@ -21,7 +21,6 @@
   },
   "files": [
     "bin",
-    "skills",
     "scripts"
   ],
   "engines": {
