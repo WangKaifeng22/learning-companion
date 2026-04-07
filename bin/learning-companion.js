@@ -5,8 +5,6 @@
 const fs = require('fs');
 const path = require('path');
 
-const SKILLS = ['background-character', 'interaction-rules', 'study-workspace'];
-
 const GREEN = '\x1b[32m';
 const CYAN = '\x1b[36m';
 const YELLOW = '\x1b[33m';
@@ -39,19 +37,15 @@ function main() {
   const pkgRoot = path.join(__dirname, '..');
   const cwd = process.cwd();
 
-  log(CYAN, '\n🎓 AI Learning Companion — installing skills\n');
+  log(CYAN, '\n🎓 AI Learning Companion — installing skill & scripts\n');
 
-  // Install everything under .github/copilot/skills/learning-companion/
   const installRoot = path.join(cwd, '.github', 'copilot', 'skills', 'learning-companion');
 
-  // Copy skill files → .github/copilot/skills/learning-companion/skills/<name>/SKILL.md
-  const skillsSrc = path.join(pkgRoot, 'skills');
-  for (const skill of SKILLS) {
-    const src = path.join(skillsSrc, skill, 'SKILL.md');
-    const dest = path.join(installRoot, 'skills', skill, 'SKILL.md');
-    copyFile(src, dest);
-    log(GREEN, `  ✔ skill installed: .github/copilot/skills/learning-companion/skills/${skill}/SKILL.md`);
-  }
+  // Copy SKILL.md → .github/copilot/skills/learning-companion/SKILL.md
+  const skillSrc = path.join(pkgRoot, 'SKILL.md');
+  const skillDest = path.join(installRoot, 'SKILL.md');
+  copyFile(skillSrc, skillDest);
+  log(GREEN, '  ✔ skill installed: .github/copilot/skills/learning-companion/SKILL.md');
 
   // Copy helper scripts → .github/copilot/skills/learning-companion/scripts/
   const scriptsSrc = path.join(pkgRoot, 'scripts');
@@ -61,8 +55,8 @@ function main() {
 
   log(YELLOW, '\n📖 下一步：');
   console.log('  1. 将 AI 模型指向你的项目文件夹');
-  console.log('  2. 告诉它："使用 background-character skill，帮我创建 AI 伴学系统"');
-  console.log('  3. 按照引导依次完成 background-character → interaction-rules → study-workspace\n');
+  console.log('  2. 告诉它："使用 learning-companion skill，帮我创建 AI 伴学系统"');
+  console.log('  3. 运行 setup_workspace.py 初始化学习工作区，使用 mineru_caller.py / ocr_caller.py 提取文档内容\n');
 }
 
 main();

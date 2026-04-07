@@ -21,8 +21,8 @@
   },
   "files": [
     "bin",
-    "skills",
-    "scripts"
+    "scripts",
+    "SKILL.md"
   ],
   "engines": {
     "node": ">=14"
