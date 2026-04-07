@@ -37,19 +37,26 @@ function main() {
   const pkgRoot = path.join(__dirname, '..');
   const cwd = process.cwd();
 
-  log(CYAN, '\n🎓 AI Learning Companion — installing scripts\n');
+  log(CYAN, '\n🎓 AI Learning Companion — installing skill & scripts\n');
+
+  const installRoot = path.join(cwd, '.github', 'copilot', 'skills', 'learning-companion');
+
+  // Copy SKILL.md → .github/copilot/skills/learning-companion/SKILL.md
+  const skillSrc = path.join(pkgRoot, 'SKILL.md');
+  const skillDest = path.join(installRoot, 'SKILL.md');
+  copyFile(skillSrc, skillDest);
+  log(GREEN, '  ✔ skill installed: .github/copilot/skills/learning-companion/SKILL.md');
 
   // Copy helper scripts → .github/copilot/skills/learning-companion/scripts/
-  const installRoot = path.join(cwd, '.github', 'copilot', 'skills', 'learning-companion');
   const scriptsSrc = path.join(pkgRoot, 'scripts');
   const scriptsDest = path.join(installRoot, 'scripts');
   copyDir(scriptsSrc, scriptsDest);
   log(GREEN, '  ✔ scripts installed: .github/copilot/skills/learning-companion/scripts/');
 
   log(YELLOW, '\n📖 下一步：');
-  console.log('  1. 运行 setup_workspace.py 初始化学习工作区文件');
-  console.log('  2. 使用 mineru_caller.py 提取 PDF/文档内容');
-  console.log('  3. 使用 ocr_caller.py 对图片或扫描件进行 OCR 识别\n');
+  console.log('  1. 将 AI 模型指向你的项目文件夹');
+  console.log('  2. 告诉它："使用 learning-companion skill，帮我创建 AI 伴学系统"');
+  console.log('  3. 运行 setup_workspace.py 初始化学习工作区，使用 mineru_caller.py / ocr_caller.py 提取文档内容\n');
 }
 
 main();
