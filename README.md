@@ -10,20 +10,13 @@ AI Learning Companion是一个帮助任何人创建定制化AI办学系统的工
 npx learning-companion
 ```
 
-命令会自动完成：
-- 在 `.github/copilot/skills/learning-companion/` 下安装所有内容：
-  - `skills/background-character/SKILL.md`
-  - `skills/interaction-rules/SKILL.md`
-  - `skills/study-workspace/SKILL.md`
-  - `scripts/`（OCR / 文档提取辅助脚本）
-
 > **手动安装：** 你也可以直接克隆本仓库，将 `skills/` 下的各 `SKILL.md` 复制到你项目的 `.github/copilot/skills/<skill-name>/SKILL.md`，并将 `scripts/` 目录复制到项目根目录。
 
 ## 使用方法
 
-创建流程拆分为了3个skills：background-character可帮助建立人物设定；interaction-rules可帮助建立交互规则；study-workspace可帮助建立一本/多本文献对应的工作区文件。
+创建流程为：1. 建立人物设定 2. 建立交互规则；3. 建立一本/多本文献对应的工作区文件。
 
-初次使用时，默认的初始化流程为background-character -> interaction-rules -> study-workspace，你也可以选择跳过某些阶段。
+你也可以选择跳过某些阶段。
 
 你的 AI 伴学系统创建完成后。每次开始学习时，只需将你希望使用的 AI 模型指向项目文件夹，然后告诉它：
 
@@ -37,18 +30,13 @@ npx learning-companion
 
 ```
 learning-companion/
-├── README.md                           # 本文件，使用说明
+├── README.md                          
+├── SKILL.md
 ├── scripts/                            # 工具脚本
 │   ├── setup_workspace.py              # 生成工作区文件
 │   ├── ocr_caller.py                   # paddleOCR 调用脚本
 │   └── mineru_caller.py                # minerU 调用脚本
-└── skills/
-    ├── background-character/
-    │   └── SKILL.md                    # 人物设定 skill
-    ├── interaction-rules/
-    │   └── SKILL.md                    # 交互规则 skill
-    └── study-workspace/
-        └── SKILL.md                    # 学习工作区 skill
+
 ```
 
 ### 生成的伴学项目结构
@@ -80,8 +68,3 @@ learning-companion/
 - `BackgroundAndCharacterSetting.md` 和 `InteractionRules.md` 是通用的，不绑定具体文献
 - 可以直接复制到新的项目文件夹中使用
 - 只需为新项目创建新的 `prompt.txt` 和追踪文件
-
-## 导出配置
-
-- 将整个文件夹打包（zip/tar）即可完整导出
-- 包含所有配置文件和已有的学习记录
