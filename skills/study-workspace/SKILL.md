@@ -133,7 +133,7 @@ After all phases are complete, offer a trial run:
 
 After all phases are complete, suggest:
 
-> 学习工作区已设置完成。想了解如何导出配置和复用同一套人设换一本书，使用 **export-reuse** skill。也可以直接开始学习，参见项目根目录的 README.md。
+> 学习工作区已设置完成。想了解如何导出配置和复用同一套人设换一本书，参见项目根目录的 README.md。
 
 ---
 
