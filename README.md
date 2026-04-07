@@ -2,6 +2,23 @@
 
 AI Learning Companion是一个帮助任何人创建定制化AI办学系统的工作流，基于一组可组合的skills和一些可调用OCR阅读PDF或图像的scripts。
 
+## 安装
+
+在你的项目目录中运行以下命令，一键将所有 skills 和辅助脚本安装到项目里：
+
+```bash
+npx learning-companion
+```
+
+命令会自动完成：
+- 在 `.github/copilot/skills/learning-companion/` 下安装所有内容：
+  - `skills/background-character/SKILL.md`
+  - `skills/interaction-rules/SKILL.md`
+  - `skills/study-workspace/SKILL.md`
+  - `scripts/`（OCR / 文档提取辅助脚本）
+
+> **手动安装：** 你也可以直接克隆本仓库，将 `skills/` 下的各 `SKILL.md` 复制到你项目的 `.github/copilot/skills/<skill-name>/SKILL.md`，并将 `scripts/` 目录复制到项目根目录。
+
 ## 使用方法
 
 创建流程拆分为了3个skills：background-character可帮助建立人物设定；interaction-rules可帮助建立交互规则；study-workspace可帮助建立一本/多本文献对应的工作区文件。
